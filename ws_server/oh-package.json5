@@ -1,0 +1,11 @@
+{
+  "name": "@hmkit/ws-server",
+  "version": "0.1.0",
+  "description": "Optional Network Kit WebSocket server backend for @hmkit/ws",
+  "main": "Index.ets",
+  "oh-exports": ["Index.ets"],
+  "license": "MIT",
+  "dependencies": {
+    "@hmkit/ws": "file:../ws"
+  }
+}

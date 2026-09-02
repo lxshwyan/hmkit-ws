@@ -1,0 +1,15 @@
+{
+  "name": "hmkit-ws-interoperability",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node run.mjs"
+  },
+  "dependencies": {
+    "@stomp/stompjs": "^7.2.1",
+    "mqtt": "^5.14.1",
+    "socket.io": "^4.8.1",
+    "socket.io-client": "^4.8.1",
+    "ws": "^8.18.3"
+  }
+}

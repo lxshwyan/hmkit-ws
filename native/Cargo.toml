@@ -1,0 +1,23 @@
+[package]
+name = "hmkit_ws_native"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+futures-util = "0.3"
+napi-ohos = { version = "1.2", default-features = false, features = ["napi8", "async"] }
+napi-derive-ohos = "1.2"
+tokio = { version = "1", features = ["macros", "net", "sync", "rt-multi-thread"] }
+tokio-tungstenite = { version = "0.26", default-features = false, features = ["connect", "handshake", "rustls-tls-webpki-roots"] }
+
+[build-dependencies]
+napi-build-ohos = "1.2"
+
+[profile.release]
+lto = true
+codegen-units = 1
+strip = "symbols"

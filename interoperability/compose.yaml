@@ -1,0 +1,15 @@
+services:
+  mosquitto:
+    image: eclipse-mosquitto:2.0.22
+    ports:
+      - "18884:1883"
+      - "9002:9001"
+    volumes:
+      - ./mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
+
+  rabbitmq:
+    image: rabbitmq:4.1-management
+    command: ["sh", "-c", "rabbitmq-plugins enable --offline rabbitmq_web_stomp && rabbitmq-server"]
+    ports:
+      - "5673:5672"
+      - "15675:15674"

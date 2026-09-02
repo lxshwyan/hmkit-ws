@@ -1,0 +1,8 @@
+{
+  "module": {
+    "name": "hmkit_ws_native",
+    "type": "har",
+    "deviceTypes": ["default", "phone", "tablet", "2in1"],
+    "requestPermissions": [{ "name": "ohos.permission.INTERNET" }]
+  }
+}
