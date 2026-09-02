@@ -5,6 +5,16 @@
   "main": "index.ets",
   "types": "libs/index.d.ts",
   "license": "MIT",
+  "compatibleSdkVersion": 12,
+  "compatibleSdkType": "HarmonyOS",
+  "obfuscated": false,
+  "nativeComponents": [
+    {
+      "name": "libhmkit_ws_native.so",
+      "compatibleSdkVersion": 12,
+      "compatibleSdkType": "HarmonyOS"
+    }
+  ],
   "dependencies": {
     "@hmkit/ws": "0.1.0"
   }
