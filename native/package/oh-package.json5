@@ -4,7 +4,13 @@
   "description": "Optional Rust and Node-API WebSocket client/server backend for @hmkit/ws",
   "main": "index.ets",
   "types": "libs/index.d.ts",
+  "author": {
+    "name": "hmkit",
+    "url": "https://github.com/lxshwyan"
+  },
   "license": "MIT",
+  "homepage": "https://github.com/lxshwyan/hmkit-ws",
+  "repository": "https://github.com/lxshwyan/hmkit-ws.git",
   "compatibleSdkVersion": 12,
   "compatibleSdkType": "HarmonyOS",
   "obfuscated": false,

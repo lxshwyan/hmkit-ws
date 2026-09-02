@@ -4,7 +4,13 @@
   "description": "Optional Network Kit WebSocket server backend for @hmkit/ws",
   "main": "Index.ets",
   "oh-exports": ["Index.ets"],
+  "author": {
+    "name": "hmkit",
+    "url": "https://github.com/lxshwyan"
+  },
   "license": "MIT",
+  "homepage": "https://github.com/lxshwyan/hmkit-ws",
+  "repository": "https://github.com/lxshwyan/hmkit-ws.git",
   "dependencies": {
     "@hmkit/ws": "0.1.0"
   }
