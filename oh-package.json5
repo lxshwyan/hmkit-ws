@@ -1,11 +1,10 @@
 {
   "modelVersion": "5.0.0",
   "name": "hmkit-ws-workspace",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Workspace for @hmkit/ws",
   "dependencies": {},
   "devDependencies": {
     "@ohos/hypium": "1.0.25"
   }
 }
-

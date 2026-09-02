@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.1 - 2026-09-02
+
+- Added a Chinese-first OHPM README with installation, quick start, capability and design-boundary documentation.
+
 ## 0.1.0 - 2026-09-02
 
 - Initial public preview.

@@ -1,6 +1,6 @@
 {
   "name": "@hmkit/ws-server",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Optional Network Kit WebSocket server backend for @hmkit/ws",
   "main": "Index.ets",
   "oh-exports": ["Index.ets"],
@@ -12,6 +12,6 @@
   "homepage": "https://github.com/lxshwyan/hmkit-ws",
   "repository": "https://github.com/lxshwyan/hmkit-ws.git",
   "dependencies": {
-    "@hmkit/ws": "0.1.0"
+    "@hmkit/ws": "0.1.1"
   }
 }

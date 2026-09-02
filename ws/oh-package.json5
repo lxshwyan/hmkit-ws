@@ -1,6 +1,6 @@
 {
   "name": "@hmkit/ws",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "HarmonyOS extensible WebSocket, realtime protocols and messaging toolkit",
   "main": "Index.ets",
   "oh-exports": [

@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.1 - 2026-09-02
+
+- Added Chinese-first README content for all OHPM packages.
+- Added complete author, homepage and repository metadata to optional packages.
+
 ## 0.1.0 - 2026-09-02
 
 - Added the API 12+ pure-ArkTS WebSocket client and extension contracts.
