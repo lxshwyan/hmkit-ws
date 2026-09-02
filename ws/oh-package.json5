@@ -13,18 +13,5 @@
   "license": "MIT",
   "homepage": "https://github.com/lxshwyan/hmkit-ws",
   "repository": "https://github.com/lxshwyan/hmkit-ws.git",
-  "keywords": [
-    "websocket",
-    "reconnect",
-    "heartbeat",
-    "socket.io",
-    "stomp",
-    "mqtt",
-    "im",
-    "harmonyos",
-    "arkts",
-    "ohos"
-  ],
   "dependencies": {}
 }
-
