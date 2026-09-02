@@ -6,6 +6,6 @@
   "oh-exports": ["Index.ets"],
   "license": "MIT",
   "dependencies": {
-    "@hmkit/ws": "file:../ws"
+    "@hmkit/ws": "0.1.0"
   }
 }
