@@ -10,5 +10,11 @@ The core package does not require Socket.IO, STOMP, MQTT, IM persistence,
 or native binaries at runtime unless the application explicitly uses those
 features.
 
+## Installation
+
+```shell
+ohpm install @hmkit/ws
+```
+
 Documentation and examples:
 https://github.com/lxshwyan/hmkit-ws

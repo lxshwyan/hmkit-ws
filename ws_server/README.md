@@ -6,5 +6,11 @@ This package is isolated from the API 12 client core. It requires HarmonyOS
 API 19 or newer; API 19-22 availability is device-dependent, while API 23+
 provides the all-device capability boundary.
 
+## Installation
+
+```shell
+ohpm install @hmkit/ws-server
+```
+
 Documentation and examples:
 https://github.com/lxshwyan/hmkit-ws
