@@ -1,9 +1,9 @@
 {
   "name": "@hmkit/ws-native",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Optional Rust and Node-API WebSocket client/server backend for @hmkit/ws",
   "main": "index.ets",
-  "types": "libs/index.d.ts",
+  "types": "index.d.ets",
   "author": {
     "name": "hmkit",
     "url": "https://github.com/lxshwyan"
@@ -22,6 +22,6 @@
     }
   ],
   "dependencies": {
-    "@hmkit/ws": "0.1.1"
+    "@hmkit/ws": "0.1.2"
   }
 }

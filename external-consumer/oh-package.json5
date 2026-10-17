@@ -1,0 +1,7 @@
+{
+  "modelVersion": "5.0.0",
+  "name": "hmkit-ws-consumer",
+  "version": "1.0.0",
+  "dependencies": {},
+  "overrides": { "@hmkit/ws": "file:./packages/ws.har" }
+}

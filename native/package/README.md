@@ -20,6 +20,7 @@ ohpm install @hmkit/ws
 - 客户端支持 `ws` 和基于 rustls / WebPKI 根证书的 `wss`。
 - 提供可选 Native WebSocket Server。
 - 包含 `arm64-v8a`、`armeabi-v7a` 和 `x86_64` 三种 OHOS ABI。
+- `NativeWsTransportFactory`、`NativeWsServerFactory` 等 ArkTS 适配器均由包级类型入口公开，可直接从 `@hmkit/ws-native` 导入。
 
 Native Server 当前提供明文 `ws` listener。生产环境需要 TLS 时，建议在网关终止 TLS，或选择 `@hmkit/ws-server` 提供的官方 Network Kit 后端。
 

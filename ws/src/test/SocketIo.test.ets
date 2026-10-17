@@ -2,8 +2,18 @@ import { describe, expect, it } from '@ohos/hypium';
 import { EngineIoCodec, EngineIoOpenPacket, EngineIoPacket, EngineIoPacketType, SocketIoCodec,
   SocketIoEvent, SocketIoPacket, SocketIoPacketDecoder, SocketIoPacketType,
   SocketIoWireCodec } from '../main/ets/protocol/socketio/SocketIoCodec';
-import { WsData } from '../main/ets/core/Types';
-import { EngineIoPollingPayloadCodec } from '../main/ets/protocol/socketio/PollingTransport';
+import { WsConnectionOptions, WsData, WsError, WsErrorCode } from '../main/ets/core/Types';
+import { EngineIoPollingPayloadCodec, EngineIoPollingTransport, EngineIoPollingTransportOptions,
+  PollingHttpExecutor, PollingHttpRequest, PollingHttpResponse } from
+  '../main/ets/protocol/socketio/PollingTransport';
+
+class RejectingPollingHttpExecutor implements PollingHttpExecutor {
+  cancelled: boolean = false;
+  execute(_request: PollingHttpRequest): Promise<PollingHttpResponse> {
+    return Promise.reject(new Error('network unavailable'));
+  }
+  cancel(): void { this.cancelled = true; }
+}
 
 export default function socketIoTest(): void {
   describe('Socket.IO v4 codec', (): void => {
@@ -63,6 +73,22 @@ export default function socketIoTest(): void {
       expect(decoded.length).assertEqual(3);
       expect(decoded[0]).assertEqual('4hello');
       expect(new Uint8Array(decoded[2] as ArrayBuffer)[3]).assertEqual(4);
+    });
+
+    it('maps polling handshake failures to a connect error', 0, async (): Promise<void> => {
+      const executor: RejectingPollingHttpExecutor = new RejectingPollingHttpExecutor();
+      const options: EngineIoPollingTransportOptions = new EngineIoPollingTransportOptions();
+      options.executor = executor;
+      const transport: EngineIoPollingTransport = new EngineIoPollingTransport(options);
+      let failure: WsError | undefined;
+      try {
+        await transport.connect('wss://example.test/socket.io', new WsConnectionOptions());
+      } catch (error) {
+        if (error instanceof WsError) failure = error;
+      }
+      expect(failure?.code).assertEqual(WsErrorCode.CONNECT_FAILED);
+      expect(failure?.message).assertEqual('network unavailable');
+      expect(executor.cancelled).assertFalse();
     });
   });
 }

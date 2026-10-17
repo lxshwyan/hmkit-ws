@@ -1,0 +1,29 @@
+{
+  "app": {
+    "bundleName": "com.hmkit.ws.demo",
+    "debug": false,
+    "versionCode": 100002,
+    "versionName": "0.1.2",
+    "minAPIVersion": 50000012,
+    "targetAPIVersion": 50000012,
+    "apiReleaseType": "Release",
+    "targetMinorAPIVersion": 0,
+    "targetPatchAPIVersion": 0,
+    "compileSdkVersion": "6.1.0.105",
+    "compileSdkType": "HarmonyOS",
+    "appEnvironments": [],
+    "bundleType": "app",
+    "buildMode": "release"
+  },
+  "module": {
+    "name": "hmkit_ws_native",
+    "type": "har",
+    "deviceTypes": ["default", "phone", "tablet", "2in1"],
+    "requestPermissions": [{ "name": "ohos.permission.INTERNET" }],
+    "packageName": "@hmkit/ws-native",
+    "installationFree": false,
+    "virtualMachine": "ark12.0.2.0",
+    "compileMode": "esmodule",
+    "dependencies": []
+  }
+}

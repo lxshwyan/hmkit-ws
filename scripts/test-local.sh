@@ -23,3 +23,5 @@ if [[ ! "${SUMMARY}" =~ ^Tests\ run:\ [1-9][0-9]*,\ Failure:\ 0,\ Error:\ 0,\ Pa
   exit 1
 fi
 
+"${SCRIPT_DIR}/check-coverage.sh"
+

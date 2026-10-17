@@ -7,7 +7,7 @@ PROJECT_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
 INTEROP_DIR="${PROJECT_DIR}/interoperability"
 
 cd "${INTEROP_DIR}"
-npm install --ignore-scripts
+npm ci --ignore-scripts
 docker compose up -d --wait
 
 cleanup() {

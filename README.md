@@ -2,7 +2,7 @@
 
 面向 HarmonyOS NEXT / OpenHarmony 的分层实时通信套件。核心目标是：API 清晰、协议可替换、策略可注入，并且不让高层协议或高版本系统能力污染基础 WebSocket 客户端。
 
-> 当前版本 `0.1.1` 是开发预览版；`0.1.0` 已发布到 OHPM，`0.1.1` 补充中文包文档。
+> 当前稳定版本 `0.1.2`。这是一次三包同步的兼容性与发布质量更新，不新增协议，也不包含有意的破坏性 API 变更。
 
 ## 安装
 
@@ -93,7 +93,8 @@ const store = new FileImStore(context.filesDir, options);
 ## 本地验证
 
 ```bash
-./scripts/test-local.sh
+# 单测、覆盖率、三包构建、API/安全扫描和独立消费者
+./scripts/verify.sh
 
 # Docker reference servers：Socket.IO polling/websocket、MQTT 5 TCP/websocket、STOMP 1.2
 ./scripts/test-interop.sh
@@ -103,4 +104,4 @@ cargo install ohrs --root .tools/ohrs --locked
 ./scripts/build-release.sh
 ```
 
-若只发布纯 ArkTS 包，可运行 `BUILD_NATIVE=0 ./scripts/build-release.sh`。本地单测覆盖核心生命周期、重连、心跳、队列/发送顺序、协议 codec/状态机、MQTT 5 流控/认证和 IM 快照；互操作套件使用真实开源服务器验证线协议。
+若只构建纯 ArkTS 包，可运行 `BUILD_NATIVE=0 ./scripts/build-release.sh`。本地单测覆盖核心生命周期、重连、心跳、队列/发送顺序、协议 codec/状态机、MQTT 5 流控/认证和 IM 快照；互操作套件使用真实开源服务器验证线协议。完整的 0.1.2 变更和证据见 [发布说明](docs/RELEASE-NOTES-0.1.2.md) 与 [验证记录](docs/VALIDATION-0.1.2.md)。

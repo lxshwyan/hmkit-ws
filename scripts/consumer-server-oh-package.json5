@@ -1,0 +1,8 @@
+{
+  "name": "entry",
+  "version": "1.0.0",
+  "dependencies": {
+    "@hmkit/ws": "file:../packages/ws.har",
+    "@hmkit/ws-server": "file:../packages/ws_server.har"
+  }
+}

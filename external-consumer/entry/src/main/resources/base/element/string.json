@@ -1,0 +1,7 @@
+{
+  "string": [
+    { "name": "module_desc", "value": "Independent @hmkit/ws consumer" },
+    { "name": "EntryAbility_desc", "value": "HAR compatibility smoke ability" },
+    { "name": "EntryAbility_label", "value": "WsConsumer" }
+  ]
+}

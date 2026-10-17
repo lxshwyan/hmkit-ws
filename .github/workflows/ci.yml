@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  static:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: interoperability/package-lock.json
+      - name: Validate repository metadata and scripts
+        run: bash scripts/check-public-metadata.sh
+      - name: Validate Rust dependency graph
+        working-directory: native
+        run: cargo metadata --locked --no-deps >/dev/null
+      - name: Audit interoperability dependencies
+        working-directory: interoperability
+        run: npm ci --ignore-scripts && npm audit --audit-level=high
+
+  interoperability:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: interoperability/package-lock.json
+      - name: Socket.IO, MQTT, and STOMP reference servers
+        run: bash scripts/test-interop.sh

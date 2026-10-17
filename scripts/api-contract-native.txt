@@ -1,0 +1,11 @@
+NativeClientConfig
+NativeCloseEvent
+NativePeerCloseEvent
+NativePeerMessage
+NativeWebSocketClient
+NativeWebSocketServer
+NativeWsServer
+NativeWsServerCapability
+NativeWsServerFactory
+NativeWsTransport
+NativeWsTransportFactory

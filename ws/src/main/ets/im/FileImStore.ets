@@ -160,16 +160,25 @@ class FileImStoreBackend {
   }
 
   private load(): void {
-    if (!fs.accessSync(this.filePath) && fs.accessSync(this.backupPath)) {
-      fs.renameSync(this.backupPath, this.filePath);
+    let primaryError: Object | undefined;
+    try {
+      if (!fs.accessSync(this.filePath) && fs.accessSync(this.backupPath)) {
+        fs.renameSync(this.backupPath, this.filePath);
+      }
+      if (!fs.accessSync(this.filePath)) return;
+      this.snapshot = this.options.codec.decode(fs.readTextSync(this.filePath));
+      return;
+    } catch (error) {
+      primaryError = error;
     }
-    if (!fs.accessSync(this.filePath)) return;
-    try { this.snapshot = this.options.codec.decode(fs.readTextSync(this.filePath)); }
-    catch (primaryError) {
+    try {
       if (!fs.accessSync(this.backupPath)) {
         throw primaryError instanceof Error ? primaryError : new Error('读取 IM file store 失败');
       }
       this.snapshot = this.options.codec.decode(fs.readTextSync(this.backupPath));
+    } catch (backupError) {
+      if (backupError instanceof Error) throw backupError;
+      throw primaryError instanceof Error ? primaryError : new Error('读取 IM file store 失败');
     }
   }
 
@@ -184,9 +193,11 @@ class FileImStoreBackend {
       fs.renameSync(this.temporaryPath, this.filePath);
       if (fs.accessSync(this.backupPath)) fs.unlinkSync(this.backupPath);
     } catch (error) {
-      if (!fs.accessSync(this.filePath) && fs.accessSync(this.backupPath)) {
-        try { fs.renameSync(this.backupPath, this.filePath); } catch (_restoreError) {}
-      }
+      try {
+        if (!fs.accessSync(this.filePath) && fs.accessSync(this.backupPath)) {
+          fs.renameSync(this.backupPath, this.filePath);
+        }
+      } catch (_restoreError) {}
       throw error instanceof Error ? error : new Error('写入 IM file store 失败');
     } finally {
       if (file !== undefined) { try { fs.closeSync(file); } catch (_closeError) {} }

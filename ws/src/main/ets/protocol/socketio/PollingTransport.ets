@@ -49,6 +49,8 @@ export class NetworkKitPollingHttpExecutor implements PollingHttpExecutor {
       const response: http.HttpResponse = await client.request(request.url, options);
       const value: string = typeof response.result === 'string' ? response.result : `${response.result}`;
       return new PollingHttpResponse(response.responseCode, value);
+    } catch (error) {
+      throw error instanceof Error ? error : new Error('Polling HTTP 请求失败');
     } finally {
       const index: number = this.active.indexOf(client);
       if (index >= 0) this.active.splice(index, 1);
